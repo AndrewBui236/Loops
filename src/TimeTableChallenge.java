@@ -12,17 +12,20 @@ public class TimeTableChallenge {
 		int num;
 		int score=0;
 		int hi2=0;
-
+		int x=1;
 		//Ask for hi, low and num
-		System.out.println("Wekcome to the Time Table Challenge!");
+		System.out.println("Welcome to the Time Table Challenge!");
 		System.out.println("What is the bigest number you want?");
 		hi=in.nextInt();
-		System.out.println("what is the smallest number you want?");
+		System.out.println("What is the smallest number you want?");
 		low=in.nextInt();
-		System.out.println("How many questions do you want?");
-		num=in.nextInt();
-		//loop and ask questions
-		for (int x=1;x<=num;x++) {
+		if (low>hi) {
+			hi=low;
+			low=hi2;
+		}
+		//Loop and ask questions
+		
+		while (score<10) {
 			int num1=rnd.nextInt(hi-low+1)+low;
 			int num2=rnd.nextInt(hi-low+1)+low;
 			System.out.println("Question "+x+") "+num1+" x "+num2+" = ?");
@@ -32,9 +35,13 @@ public class TimeTableChallenge {
 				System.out.println("Right");
 			}else {
 				System.out.println("Wrong! The answer is "+(num1*num2));
+				score=0;
+				System.out.println("Try until you get 10 right in a row");
 			}
-		}
+			x++;
+			}
+		
 		//Print results
-		System.out.println("You got "+score+" right out of "+num);
+		System.out.println("You got "+score+" right in a row");
 	}
 }
